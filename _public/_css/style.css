@@ -67,7 +67,6 @@ a:hover {
 }
 
 
-
 /* Classes */
 .card-imagem {
     display: inline-block;
@@ -189,15 +188,19 @@ a:hover {
 }
 
 /* Header */
+/*.header-principal div {
+    box-shadow: 5px 15px 15px -10px rgba(0,0,0,0.5);
+}*/
+
+/* Header div */
 header div {
     background-color: #E1EED0;
     height: 6.25rem;
     padding: 0 2rem;
     display: flex;
     flex-direction: row;
-    box-shadow: 5px 15px 15px -10px rgba(0,0,0,0.5);
-    justify-content: space-between; /* Alinha o conteúdo no início e no final */
-    align-items: center; /* Centraliza verticalmente os itens */
+    justify-content: space-between;
+    align-items: center;
 }
 
 header div img {
@@ -332,7 +335,7 @@ footer {
     max-height: 900px;
     margin: -15px -15px -15px -15px;
     background-color: #1b421a;
-    box-shadow: 8px 8px 8px 8px black;
+    /*box-shadow: 8px 8px 8px 8px black;*/
     border: solid 1px black;
     text-align: center;
     display: flex;
