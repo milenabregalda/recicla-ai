@@ -372,6 +372,13 @@ footer p {
     display: none;
 }
 
+/* Mapa */
+#mapa iframe {
+    width: 50%;
+    height: auto;
+    max-width: 50%;
+}
+
 /* Media Queries */
 @media (max-width: 900px) {
     .container-cards {
@@ -421,5 +428,11 @@ footer p {
     #botao-acessibilidade {
         position: static; /* Remove o position absoluto */
         margin-left: auto; /* Move os botões para o lado direito */
+    }
+}
+
+@media (max-width: 768px) {
+    #mapa iframe {
+        height: 250px; /* Ajuste a altura conforme necessário */
     }
 }
