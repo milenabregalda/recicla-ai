@@ -247,6 +247,7 @@ header li {
 
 /* Main */
 main {
+    width: 95%;
     margin-bottom: 3rem;
     background-color: #E1EED0;
     padding: 1rem;
@@ -325,6 +326,7 @@ h3 a {
 
 /* Footer */
 footer {
+    width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     padding-top: 15px;
     padding-bottom: 15px;
