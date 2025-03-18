@@ -370,6 +370,16 @@ footer p {
 
 #menu-hamburguer {
     display: none;
+    /*align-items: center; 
+    justify-content: center;
+    width: 20px;
+    cursor: pointer;
+    font-size: 24px;*/
+}
+
+#menu-hamburguer + ul li {
+    padding: 5px 10px 10px 20px; /* Topo, direita, inferior, esquerda */
+    text-align: start;
 }
 
 /* Mapa */
@@ -386,7 +396,7 @@ footer p {
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1198px) {
     #menu-hamburguer {
         display: block;
         font-size: 2rem;
