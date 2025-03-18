@@ -463,3 +463,22 @@ footer p {
         height: 350px; /* Altura ajustada para telas pequenas */
     }
 }
+
+@media (max-width: 1359px) {
+    .conteudo-pagina-porque .topico {
+        flex-direction: column; /* Empilha a imagem e o texto */
+        align-items: center; /* Centraliza o conteúdo */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .conteudo-pagina-porque img {
+        width: 90%; /* Ajusta o tamanho da imagem */
+        margin: 0 auto 20px auto; /* Centraliza a imagem e dá espaço abaixo */
+        max-width: 400px; /* Limita o tamanho para não ficar muito grande */
+    }
+
+    .conteudo-pagina-porque .topico .texto {
+        width: 100%; /* O texto ocupa toda a largura disponível */
+        margin-left: 0; /* Remove a margem lateral */
+    }
+}
