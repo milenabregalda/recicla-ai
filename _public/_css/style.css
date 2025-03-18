@@ -68,6 +68,17 @@ a:hover {
 
 
 /* Classes */
+/* Container para os cards */
+.container-cards2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo */
+    gap: 20px; /* Espaço entre os cards */
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* Ajuste dos cards */
 .card-imagem {
     display: inline-block;
     margin-top: 30px;
@@ -120,10 +131,11 @@ a:hover {
     border-radius: 15px;
     box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.5);
     border: solid 1px rgb(36, 95, 36); 
-    padding: 1rem 0rem 2rem 1rem;
+    padding: 1rem 1rem 2rem 1rem;
     margin-top: 2rem;
     margin-right: 5rem;
     margin-bottom: 2rem;
+    margin-left: 5rem;
     max-width: 35rem;
     color: #fff;
 }
