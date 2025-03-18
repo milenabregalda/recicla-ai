@@ -370,6 +370,7 @@ footer p {
 
 #menu-hamburguer {
     display: none;
+    width: 10%,
     /*align-items: center; 
     justify-content: center;
     width: 20px;
@@ -378,15 +379,21 @@ footer p {
 }
 
 #menu-hamburguer + ul li {
-    padding: 5px 10px 10px 20px; /* Topo, direita, inferior, esquerda */
+    padding: 5px 0px 10px 20px; /* Topo, direita, inferior, esquerda */
     text-align: start;
 }
 
-/* Mapa */
+/* Mapas */
 #mapa iframe {
     width: 50%;
     height: auto;
     max-width: 50%;
+}
+
+#mapa-pontos {
+    width: 100%;
+    height: 480px; /* Ajuste a altura conforme necessário */
+    border: none;
 }
 
 /* Media Queries */
@@ -444,5 +451,11 @@ footer p {
 @media (max-width: 768px) {
     #mapa iframe {
         height: 250px; /* Ajuste a altura conforme necessário */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #mapa-pontos {
+        height: 350px; /* Altura ajustada para telas pequenas */
     }
 }
