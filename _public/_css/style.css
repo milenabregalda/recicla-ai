@@ -68,17 +68,6 @@ a:hover {
 
 
 /* Classes */
-/* Container para os cards */
-.container-cards2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo */
-    gap: 20px; /* Espaço entre os cards */
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-}
-
-/* Ajuste dos cards */
 .card-imagem {
     display: inline-block;
     margin-top: 30px;
@@ -423,15 +412,13 @@ footer p {
         font-size: 2rem;
         cursor: pointer;
         padding-right: 2rem;
-        z-index: 1000; /* Garantir que o ícone também fique à frente */
+        z-index: 1000;
     }
 
-    /* Esconder o menu de navegação padrão */
     header ul {
         display: none;
     }
 
-    /* Mostrar o menu quando o ícone de hambúrguer for clicado */
     header ul.active {
         margin-top: 0px;
         display: flex;
@@ -442,25 +429,68 @@ footer p {
         background-color: #E1EED0;
         width: 100%;
         text-align: right;
-        z-index: 999; /* Colocar um z-index alto */
+        z-index: 999;
     }
 
     header div {
-        flex-direction: row; /* Mantém os itens lado a lado */
+        flex-direction: row;
     }
 
-    /* Ajuste da logo em telas pequenas */
     header div img {
-        width: 45%; /* Ajusta o tamanho da logo em telas pequenas */
+        width: 45%;
+        height: auto;
+        min-width: 100px;
+        max-width: clamp(100px, 15vw, 200px);
+    }
+
+    #botao-acessibilidade {
+        position: static;
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 767px) {
+    #menu-hamburguer {
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+        padding-right: 1rem;
+        z-index: 1000;
+    }
+
+    header ul {
+        display: none;
+    }
+
+    header ul.active {
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 6rem;
+        right: 0;
+        background-color: #E1EED0;
+        width: 100%;
+        text-align: right;
+        z-index: 999;
+        left: 0;
+        overflow: hidden;
+    }
+
+    header div img {
+        width: 45%;
         height: auto;
         min-width: 200px;
         max-width: clamp(100px, 15vw, 200px);
     }
 
-    /* Ajustar o botão de acessibilidade */
     #botao-acessibilidade {
-        position: static; /* Remove o position absoluto */
-        margin-left: auto; /* Move os botões para o lado direito */
+        position: static;
+        margin-left: auto;
+    }
+
+    body {
+        overflow-x: hidden;
     }
 }
 
