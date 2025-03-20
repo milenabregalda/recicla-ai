@@ -29,6 +29,7 @@ a:hover {
     background: #777a77;
     border-style: none;
     border-radius: 30%;
+    font-size: 1.2rem;
 }
 
 #banner {
@@ -406,7 +407,7 @@ footer p {
     }
 }
 
-@media (max-width: 1198px) {
+@media (max-width: 1200px) {
     #menu-hamburguer {
         display: block;
         font-size: 2rem;
@@ -439,7 +440,7 @@ footer p {
     header div img {
         width: 45%;
         height: auto;
-        min-width: 100px;
+        min-width: 0px;
         max-width: clamp(100px, 15vw, 200px);
     }
 
@@ -448,6 +449,7 @@ footer p {
         margin-left: auto;
     }
 }
+
 
 @media (max-width: 767px) {
     #menu-hamburguer {

@@ -16,10 +16,6 @@
     <header>
         <div>
             <img src="_imgs/logo-atualizado.png" alt="Ícone do logo da empresa">
-            <div id="botao-acessibilidade">
-                <button onclick="aumentarFonte()">A+</button>
-                <button onclick="diminuirFonte()">A-</button>
-            </div>
             <div id="menu-hamburguer" onclick="toggleMenu()">
                 &#9776; <!-- Ícone de hamburguer -->
             </div>
@@ -52,6 +48,10 @@
 
     <main>
         <section id="entrar">
+            <div id="botao-acessibilidade">
+                <button onclick="aumentarFonte()">A+</button>
+                <button onclick="diminuirFonte()">A-</button>
+            </div>
             <h2>Entrar na sua conta</h2>
             <div class="form-container">
                 <form name="entrar" action="../_php/entrar_na_conta.php" method="post">

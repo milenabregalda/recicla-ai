@@ -12,16 +12,13 @@
     <script src="_js/carrossel-imagens.js"></script>
 </head>
 
+ <!-- &#9776 Ícone de hamburguer -->
 <body class="acessibilidade">
     <header class="header-principal">
         <div>
             <img src="_imgs/logo-atualizado.png" alt="Ícone do logo da empresa">
-            <div id="botao-acessibilidade">
-                <button onclick="aumentarFonte()">A+</button>
-                <button onclick="diminuirFonte()">A-</button>
-            </div>
             <div id="menu-hamburguer" onclick="toggleMenu()">
-                &#9776; <!-- Ícone de hamburguer -->
+                &#9776;
             </div>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -52,6 +49,10 @@
 
     <main>
         <section id="introducao">
+            <div id="botao-acessibilidade">
+                <button onclick="aumentarFonte()">A+</button>
+                <button onclick="diminuirFonte()">A-</button>
+            </div>
             <h2>Bem-vindo ao Recicla Aí!</h2>
             <p>O Recicla Aí foi criado para conscientizar e informar sobre a importância da reciclagem de eletrônicos.
                 Com o aumento do uso de dispositivos eletrônicos, o descarte inadequado se tornou um grande desafio para

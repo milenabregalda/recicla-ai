@@ -23,10 +23,6 @@
     <header>
         <div>
             <img src="_imgs/logo-atualizado.png" alt="Ícone do logo da empresa">
-            <div id="botao-acessibilidade">
-                <button onclick="aumentarFonte()">A+</button>
-                <button onclick="diminuirFonte()">A-</button>
-            </div>
             <div id="menu-hamburguer" onclick="toggleMenu()">
                 &#9776; <!-- Ícone de hamburguer -->
             </div>
@@ -59,6 +55,10 @@
 
     <main>
         <section id="inicio-sessao">
+        <div id="botao-acessibilidade">
+                <button onclick="aumentarFonte()">A+</button>
+                <button onclick="diminuirFonte()">A-</button>
+            </div>
             <h2>Olá, <?php echo htmlspecialchars($nomeCompleto); ?>!</h2> <!-- Exibe o nome do usuário de acordo com dado da seção  -->
         </section>
 
