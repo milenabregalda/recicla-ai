@@ -1,4 +1,3 @@
-
 /* Gerais */
 body{
     padding: 0;
@@ -90,47 +89,6 @@ a:hover {
     float: inline-start
 }
 
-.banner-image {
-    padding: 1rem;
-    width: 99%;
-    border-radius: 4.5%;
-    margin-left: auto;
-    margin-right: auto;
-    object-fit: cover;
-    position: relative;
-    display: none;
-    top: 0;
-    left: 0;
-    position: relative;
-    z-index: 1; /* Definir z-index baixo para o carrossel */
-}
-
-.banner-image:first-child {
-    display: block;
-}
-
-.container-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-}
-
-.card-sobre-nos {
-    display: flex;
-    align-items: center;
-    background-color: #4c8d4a; 
-    border-radius: 15px;
-    box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.5);
-    border: solid 1px rgb(36, 95, 36); 
-    padding: 1rem 1rem 2rem 1rem;
-    margin-top: 2rem;
-    margin-right: 5rem;
-    margin-bottom: 2rem;
-    margin-left: 5rem;
-    max-width: 35rem;
-    color: #fff;
-}
-  
 .card-sobre-nos div img {
     margin: 1rem;
     width: 125px;
@@ -248,37 +206,54 @@ header li {
     font-size: 0.7em;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-footer {
-    background-color: red;
+img {
+    max-width: 100%;
+    height: auto;
+}
+  
+.banner-image {
+    padding: 1rem 0 1rem 0.5rem;
+    width: 99%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 4.5%;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
+    position: relative;
+    display: none;
+    top: 0;
+    left: 0;
+    position: relative;
+    z-index: 1;
 }
 
-/*PROBLEMA ABAIXO*/
+.banner-image:first-child {
+    display: block;
+}
 
+.container-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+}
 
-
-
-
-
-
-
-
-
+.card-sobre-nos {
+    display: flex;
+    align-items: center;
+    background-color: #4c8d4a; 
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.5);
+    border: solid 1px rgb(36, 95, 36); 
+    padding: 1rem 1rem 2rem 1rem;
+    margin-top: 2rem;
+    margin-right: 5rem;
+    margin-bottom: 2rem;
+    margin-left: 5rem;
+    max-width: 35rem;
+    color: #fff;
+}
+  
 /* Main */
 main {
     margin-bottom: 3rem;
@@ -357,6 +332,8 @@ h3 a {
     color: rgb(45, 54, 40);
 }
 
+/*box-shadow: 8px 8px 8px 8px black;*/
+
 /* Footer */
 footer {
     font-family: Arial, Helvetica, sans-serif;
@@ -367,7 +344,7 @@ footer {
     left: 0px;
     min-height: 350px;
     max-height: 900px;
-    margin: -15px -15px -15px -15px;
+    /*margin: -15px -15px -15px -15px;*/
     background-color: #1b421a;
     border: solid 1px black;
     text-align: center;
@@ -375,9 +352,6 @@ footer {
     flex-wrap: wrap;
     vertical-align: middle;
 }
-
-    /*box-shadow: 8px 8px 8px 8px black;*/
-
 
 footer a {
     padding-left: 5px;
@@ -431,6 +405,7 @@ footer p {
     height: 480px; /* Ajuste a altura conforme necessário */
     border: none;
 }
+
 
 /* Media Queries */
 @media (max-width: 900px) {
@@ -558,19 +533,3 @@ footer p {
         margin-left: 0; /* Remove a margem lateral */
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
