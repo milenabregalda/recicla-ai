@@ -89,20 +89,6 @@ a:hover {
     float: inline-start
 }
 
-.card-sobre-nos div img {
-    margin: 1rem;
-    width: 125px;
-    height: 125px;
-    border-radius: 2rem;
-    margin-right: 1rem;
-    border: solid 2px rgb(36, 95, 36);
-}
-
-.card-sobre-nos .informacao-card h3 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(28, 34, 28);
-}
-
 .conteudo-pagina h3, .conteudo-pagina-porque h3 {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 1.4em;
@@ -230,28 +216,6 @@ img {
 
 .banner-image:first-child {
     display: block;
-}
-
-.container-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-}
-
-.card-sobre-nos {
-    display: flex;
-    align-items: center;
-    background-color: #4c8d4a; 
-    border-radius: 15px;
-    box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.5);
-    border: solid 1px rgb(36, 95, 36); 
-    padding: 1rem 1rem 2rem 1rem;
-    margin-top: 2rem;
-    margin-right: 5rem;
-    margin-bottom: 2rem;
-    margin-left: 5rem;
-    max-width: 35rem;
-    color: #fff;
 }
   
 /* Main */
@@ -406,11 +370,77 @@ footer p {
     border: none;
 }
 
+/* Cards */
+.container-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+}
+
+.card-sobre-nos div img {
+    margin: 1rem;
+    width: 125px;
+    height: 125px;
+    border-radius: 2rem;
+    margin-right: 1rem;
+    border: solid 2px rgb(36, 95, 36);
+}
+
+.card-sobre-nos .informacao-card h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(28, 34, 28);
+}
+
+
+.card-sobre-nos {
+    display: flex;
+    align-items: center;
+    background-color: #4c8d4a; 
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.5);
+    border: solid 1px rgb(36, 95, 36); 
+    padding: 2rem 2rem 2rem 1rem;
+
+    margin-top: 2rem;
+    margin-right: 5rem;
+    margin-bottom: 2rem;
+    margin-left: 5rem;
+    max-width: 35rem;
+    color: #fff;
+}
+
+.card-sobre-nos div {
+    flex-shrink: 0;
+    width: 135px; /* ligeiramente maior que a imagem */
+  }
+  
+  .card-sobre-nos .informacao-card {
+    flex: 1;
+    word-wrap: break-word;
+    margin-left: 1rem; /* 👈 Espaçamento entre imagem e texto */
+    max-width: calc(100% - 150px); /* 👈 Limita largura para não invadir a área da imagem */
+  }
 
 /* Media Queries */
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
     .container-cards {
       grid-template-columns: 1fr; /* Para que, em telas menores, só apareça um card por vez na página Sobre Nós */
+    }
+}
+
+@media (max-width: 500px) {
+    .card-sobre-nos {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+  
+    .card-sobre-nos div img {
+      margin: 0 auto 1rem auto;
+    }
+  
+    .card-sobre-nos .informacao-card {
+      max-width: 90%;
     }
 }
 
