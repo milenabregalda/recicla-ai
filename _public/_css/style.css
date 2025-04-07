@@ -249,7 +249,7 @@ header li {
 
 /* Main */
 main {
-    width: 95%;
+    background-color: red;
     margin-bottom: 3rem;
     background-color: #E1EED0;
     padding: 1rem;
@@ -526,3 +526,6 @@ footer p {
         margin-left: 0; /* Remove a margem lateral */
     }
 }
+
+
+
