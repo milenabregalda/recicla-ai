@@ -10,19 +10,49 @@ $ponto = new PontosColeta($conn);
 $noticia = new Noticias($conn);
 
 // Exclusão
-if (isset($_GET['excluir_usuario'])) $usuario->excluir($_GET['excluir_usuario']);
-if (isset($_GET['excluir_ponto'])) $ponto->excluir($_GET['excluir_ponto']);
-if (isset($_GET['excluir_noticia'])) $noticia->excluir($_GET['excluir_noticia']);
+if (isset($_GET['excluir_usuario'])) {
+    $usuario->excluir($_GET['excluir_usuario']);
+    header("Location: pagina_admin.php");
+    exit;
+}
+
+if (isset($_GET['excluir_ponto'])) {
+    $ponto->excluir($_GET['excluir_ponto']);
+    header("Location: pagina_admin.php");
+    exit;
+}
+
+if (isset($_GET['excluir_noticia'])) {
+    $noticia->excluir($_GET['excluir_noticia']);
+    header("Location: pagina_admin.php");
+    exit;
+}
 
 // Edição
-if (isset($_POST['editar_usuario'])) $usuario->editar($_POST['id'], $_POST['nome'], $_POST['email'], $_POST['tipo_usuario']);
-if (isset($_POST['editar_ponto'])) $ponto->editar($_POST['id'], $_POST['nome'], $_POST['endereco'], $_POST['cidade'], $_POST['estado'], $_POST['capacidade_total'], $_POST['capacidade_disponivel'], $_POST['horario'], $_POST['contato']);
-if (isset($_POST['editar_noticia'])) $noticia->editar($_POST['id'], $_POST['titulo'], $_POST['conteudo']);
+if (isset($_POST['editar_usuario'])) {
+    $usuario->editar($_POST['id'], $_POST['nome'], $_POST['email'], $_POST['tipo_usuario']);
+    header("Location: pagina_admin.php");
+    exit;
+}
+
+if (isset($_POST['editar_ponto'])) {
+    $ponto->editar($_POST['id'], $_POST['nome'], $_POST['endereco'], $_POST['cidade'], $_POST['estado'], $_POST['capacidade_total'], $_POST['capacidade_disponivel'], $_POST['horario'], $_POST['contato']);
+    header("Location: pagina_admin.php");
+    exit;
+}
+
+if (isset($_POST['editar_noticia'])) {
+    $noticia->editar($_POST['id'], $_POST['titulo'], $_POST['conteudo']);
+    header("Location: pagina_admin.php");
+    exit;
+}
 
 // Adição
 if (isset($_POST['adicionar_usuario'])) {
     if (!empty($_POST['nome']) && !empty($_POST['email']) && !empty($_POST['tipo_usuario'])) {
         $usuario->inserir($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['tipo_usuario']);
+        header("Location: pagina_admin.php");
+        exit;
     } else {
         echo "<script>alert('Preencha os campos obrigatórios.');</script>";
     }
@@ -31,6 +61,8 @@ if (isset($_POST['adicionar_usuario'])) {
 if (isset($_POST['adicionar_noticia'])) {
     if (!empty($_POST['titulo']) && !empty($_POST['conteudo'])) {
         $noticia->inserir($_POST['titulo'], $_POST['conteudo']);
+        header("Location: pagina_admin.php");
+        exit;
     } else {
         echo "<script>alert('Preencha os campos obrigatórios.');</script>";
     }
@@ -39,6 +71,8 @@ if (isset($_POST['adicionar_noticia'])) {
 if (isset($_POST['adicionar_ponto'])) {
     if (!empty($_POST['nome']) && !empty($_POST['cidade']) && !empty($_POST['estado'])) {
         $ponto->inserir($_POST['nome'], $_POST['endereco'], $_POST['cidade'], $_POST['estado'], $_POST['capacidade_total'], $_POST['capacidade_disponivel'], $_POST['horario'], $_POST['contato'], 1);
+        header("Location: pagina_admin.php");
+        exit;
     } else {
         echo "<script>alert('Preencha os campos obrigatórios.');</script>";
     }
@@ -70,7 +104,7 @@ function editarAberto($tipo, $id) {
     </style>
 </head>
 <body>
-    <h1>Gerenciar Dados</h1>
+    <h1>Gerenciar Dados3</h1>
 
     <!-- Usuários -->
     <h2>Usuários</h2>

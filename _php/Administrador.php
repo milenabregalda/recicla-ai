@@ -32,3 +32,4 @@ class Administrador {
         return $stmt->execute([$id]);
     }
 }
+
