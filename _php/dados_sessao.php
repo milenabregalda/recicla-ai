@@ -1,31 +1,29 @@
 <?php
-require_once('scripts.php'); // Inclui a função de conexão
+require_once 'Conexao.php';
 
-// Inicia a sessão se ela ainda não existe
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Verificar se o usuário está logado
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: ../_public/entrar.html"); // Redireciona se não estiver logado
+    header("Location: ../_public/entrar.html");
     exit();
 }
 
-// Conectar ao banco de dados para encontrar usuário
-$con = getConexaoBancoMySQL();
-$stmt = $con->prepare("SELECT * FROM usuarios WHERE id = ?");
-$stmt->bind_param("i", $_SESSION['usuario_id']);
-$stmt->execute();
-$resultado = $stmt->get_result();
+try {
+    $con = Conexao::getConexao();
 
-if ($resultado->num_rows > 0) {
-    $usuario = $resultado->fetch_assoc();
-    $nomeCompleto = $usuario['nome'];
-    $emailUsuario = $usuario['email'];
-} else {
-    echo "<script>alert('Usuário não encontrado.');</script>";
+    $stmt = $con->prepare("SELECT * FROM usuario WHERE id = :id");
+    $stmt->bindParam(':id', $_SESSION['usuario_id'], PDO::PARAM_INT);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+        $nomeCompleto = $usuario['nome'];
+        $emailUsuario = $usuario['email'];
+    } else {
+        echo "<script>alert('Usuário não encontrado.');</script>";
+    }
+} catch (PDOException $e) {
+    echo "Erro: " . $e->getMessage();
 }
-
-$stmt->close();
-$con->close();
