@@ -18,7 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($usuario && hash_equals($usuario['senha'], hash('sha256', $senha))) {
         $_SESSION['usuario_id'] = $usuario['id'];
-        header("Location: ../_public/sessao.php");
+        if ($usuario['tipo_usuario'] === 'admin') {
+            header("Location: ../_php/pagina_admin.php");
+        } else {
+            header("Location: ../_public/sessao.php");
+        }
         exit();
     } else {
         echo "<script>

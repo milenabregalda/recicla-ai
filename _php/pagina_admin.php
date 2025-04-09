@@ -100,11 +100,16 @@ function editarAberto($tipo, $id) {
         .btn.excluir { background-color:rgb(20, 33, 13) }
         form input { width: 100%; box-sizing: border-box; }
         h2 { margin-top: 50px; }
-        td.conteudo-coluna { max-width: 250px; }
+        td.conteudo-coluna {
+            max-width: 700px;  
+            word-wrap: break-word;
+            white-space: normal;
+        }
     </style>
 </head>
 <body>
-    <h1>Gerenciar Dados3</h1>
+    <a href="../_public/sessao.php" class="btn" style="margin: 10px; display: inline-block;">Ir para sessão</a>
+    <h1>Gerenciamento de Dados</h1>
 
     <!-- Usuários -->
     <h2>Usuários</h2>
@@ -219,7 +224,7 @@ function editarAberto($tipo, $id) {
                     <tr>
                         <td><?= $n['id'] ?></td>
                         <td><input name="titulo" value="<?= $n['titulo'] ?>"></td>
-                        <td><input name="conteudo" value="<?= $n['conteudo'] ?>"></td>
+                        <td class="conteudo-coluna"><input name="conteudo" value="<?= $n['conteudo'] ?>"></td>
                         <td>
                             <button type="submit" name="editar_noticia" class="btn">Salvar</button>
                             <a href="gerenciar.php" class="btn">Cancelar</a>
@@ -230,7 +235,7 @@ function editarAberto($tipo, $id) {
                 <tr>
                     <td><?= $n['id'] ?></td>
                     <td><?= $n['titulo'] ?></td>
-                    <td><?= $n['conteudo'] ?></td>
+                    <td class="conteudo-coluna"><?= $n['conteudo'] ?></td>
                     <td>
                         <a href="?editar=noticia&id=<?= $n['id'] ?>" class="btn">Editar</a>
                         <a href="?excluir_noticia=<?= $n['id'] ?>" class="btn excluir" onclick="return confirm('Excluir notícia?')">Excluir</a>
