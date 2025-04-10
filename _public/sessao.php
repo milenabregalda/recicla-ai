@@ -1,6 +1,8 @@
 <?php
+    require '../_php/Conexao.php';
     require('../_php/dados_sessao.php');
     require('../_php/editar_cadastro.php');
+    require('../_php/Noticias.php');
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="o-que-e-descarte.html">O que é o Descarte Eletrônico</a></li>
                 <li><a href="por-que-descartar.html">Por que descartar corretamente?</a></li>
-                <li><a href="como-e-onde.html">Como e onde descartar</a></li>
+                <li><a href="como-e-onde.php">Como e onde descartar</a></li>
                 <li><a href="sobre-nos.html">Sobre nós</a></li>
                 <li><a href="">Entrou</a></li>
             </ul>
@@ -87,39 +89,31 @@
         <section id="noticias" class="pagina-card">
             <h3>Principais notícias</h3>
             <div class="container-cards">
-                <div class="card-sobre-nos">
-                    <div class="container-imagem">
-                        <img src="_imgs/imagem-noticia-1.PNG" alt="Imagem da notícia">
-                    </div>
-                    <div class="informacao-card">
-                        <a href=""></a>
-                        <h3><a href="https://avozdaserra.com.br/colunas/prosa-sustentavel/lixo-eletronico-o-desafio-global-da-era-digital"
-                                target="_blank" rel="noreferrer noopener">Lixo Eletrônico: O Desafio Global da Era
-                                Digital</a></h3>
-                    </div>
-                </div>
-                <div class="card-sobre-nos">
-                    <div class="container-imagem">
-                        <img src="_imgs/imagem-noticia-2.PNG" alt="Imagem da notícia">
-                    </div>
-                    <div class="informacao-card">
-                        <a href=""></a>
-                        <h3><a href="https://g1.globo.com/jornal-nacional/noticia/2024/04/27/brasil-e-o-5o-pais-que-mais-produz-residuos-eletronicos-mas-descarte-correto-ainda-e-pequeno.ghtml"
-                                target="_blank" rel="noreferrer noopener">Brasil é o 5º país que mais produz resíduos
-                                eletrônicos, mas descarte correto ainda é pequeno</a></h3>
-                    </div>
-                </div>
-                <div class="card-sobre-nos">
-                    <div class="container-imagem">
-                        <img src="_imgs/imagem-noticia-4.PNG" alt="Imagem da notícia">
-                    </div>
-                    <div class="informacao-card">
-                        <a href=""></a>
-                        <h3><a href="https://www.dgabc.com.br/Noticia/4163657/ribeirao-pires-promove-drive-thru-de-lixo-eletronico-saiba-como-participar"
-                                target="_blank" rel="noreferrer noopener">Ribeirão Pires promove Drive-Thru <br> de lixo
-                                eletrônico; saiba como participar</a></h3>
-                    </div>
-                </div>
+                <?php
+                    $noticiasObj = new Noticias(Conexao::getConexao());
+                    $listaNoticias = $noticiasObj->listar();
+
+                    $imagens = [
+                        '_imgs/eletronico.jpg',
+                        '_imgs/eletronico2.png',
+                        '_imgs/eletronico3.png'
+                    ];
+
+                    $indexImagem = 0;
+
+                    foreach ($listaNoticias as $noticia) {
+                        $imagemAtual = $imagens[$indexImagem % count($imagens)];
+                        echo '<div class="card-sobre-nos">';
+                        echo '<div class="container-imagem">';
+                        echo '<img src="' . $imagemAtual . '" alt="Imagem da notícia">';
+                        echo '</div>';
+                        echo '<div class="informacao-card">';
+                        echo '<h3><a href="' . htmlspecialchars($noticia["conteudo"]) . '" target="_blank" rel="noopener noreferrer">' . htmlspecialchars($noticia["titulo"]) . '</a></h3>';
+                        echo '</div>';
+                        echo '</div>';
+                        $indexImagem++;
+                    }
+                ?>
             </div>
         </section>
     </main>

@@ -23,7 +23,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="o-que-e-descarte.html">O que é o Descarte Eletrônico</a></li>
                 <li><a href="por-que-descartar.html">Por que descartar corretamente?</a></li>
-                <li><a href="como-e-onde.html">Como e onde descartar</a></li>
+                <li><a href="como-e-onde.php">Como e onde descartar</a></li>
                 <li><a href="sobre-nos.html">Sobre nós</a></li>
                 <li><a href="entrar.html">Entrar</a></li>
             </ul>
@@ -71,55 +71,36 @@
 
             <h3>Pontos Fixos de Recebimento de Resíduos Eletrônicos em Porto Alegre</h3>
             <ol>
-                <li><strong>DMLU - Conceição:</strong> Rua Alberto Bins, próximo ao nº 650 (embaixo do Viaduto da
-                    Conceição) - Bairro Centro<br>
-                    <legend><u>Horário de Funcionamento:</u></legend>
-                    <ul>
-                        <li>Segunda-feira à sexta-feira: das 8h às 18h</li>
-                        <li>Sábados e feriados: das 8h às 12h</li>
-                    </ul>
-                </li>
-                <li><strong>DMLU - Unidade de Destino Certo - Ecoponto Câncio Gomes:</strong> Travessa Carmem, 111 -
-                    Bairro Floresta<br>
-                    <legend><u>Horário de Funcionamento:</u></legend>
-                    <ul>
-                        <li>Segunda-feira à sexta-feira, das 7h às 18h.</li>
-                        <li>Sábados e feriados, das 8h às 12h.</li>
-                    </ul>
-                </li>
-                <li><strong>DMLU - Unidade de Destino Certo - Ecoponto Glória:</strong> Rua Professor Carvalho de
-                    Freitas, 1.012 - Bairro Glória<br>
-                    <legend><u>Horário de Funcionamento:</u></legend>
-                    <ul>
-                        <li>Segunda-feira à sexta-feira, das 7h às 18h.</li>
-                        <li>Sábados e feriados, das 8h às 12h.</li>
-                    </ul>
-                </li>
-                <li><strong>DMLU - Unidade de Destino Certo - Ecoponto Humaitá:</strong> Rua José Aloísio Filho, 780 -
-                    Bairro Humaitá<br>
-                    <legend><u>Horário de Funcionamento:</u></legend>
-                    <ul>
-                        <li>Segunda-feira à sexta-feira, das 8h às 16h.</li>
-                        <li>Sábados e feriados, das 8h às 12h.</li>
-                    </ul>
-                </li>
-                <li><strong>DMLU - Unidade de Destino Certo - Ecoponto Cruzeiro:</strong> Av. Cruzeiro do Sul, 1.445 -
-                    Vila Cruzeiro do Sul<br>
-                    <legend><u>Horário de Funcionamento:</u></legend>
-                    <ul>
-                        <li>Segunda-feira à sexta-feira, das 8h às 17h.</li>
-                        <li>Sábados e feriados, das 8h às 12h.</li>
-                    </ul>
-                </li>
-                <li><strong>DMLU - Unidade de Destino Certo - Ecoponto Princesa Isabel:</strong> Avenida Ipiranga, 2765
-                    - Bairro Santana (entrada pela rua Livramento, na esquina com avenida Princesa Isabel)<br>
-                    <legend><u>Horário de Funcionamento:</u></legend>
-                    <ul>
-                        <li>Segunda-feira à sexta-feira, das 7h às 18h.</li>
-                        <li>Sábados e feriados, das 8h às 12h.</li>
-                    </ul>
-                </li>
+                <?php
+                require_once '../_php/Conexao.php';
+                require_once '../_php/PontosColeta.php';
+
+                $conexao = new Conexao();
+                $pontosColeta = new PontosColeta($conexao->getConexao());
+                $pontos = $pontosColeta->listar();
+
+                $encontrou = false;
+
+                foreach ($pontos as $ponto) {
+                    if ($ponto['cidade'] === 'Porto Alegre') {
+                        $encontrou = true;
+                        echo "<li><strong>" . htmlspecialchars($ponto['nome']) . ":</strong> " . htmlspecialchars($ponto['endereco']) . "<br>";
+                        echo "<legend><u>Horário de Funcionamento:</u></legend>";
+                        echo "<ul>";
+                        $horarios = explode('|', $ponto['horario_funcionamento']);
+                        foreach ($horarios as $linha) {
+                            echo "<li>" . htmlspecialchars(trim($linha)) . "</li>";
+                        }
+                        echo "</ul></li>";
+                    }
+                }
+
+                if (!$encontrou) {
+                    echo "<p>Os dados não foram encontrados no banco de dados.</p>";
+                }
+                ?>
             </ol>
+
             <p>
                 A Associação Brasileira de Reciclagem de eletroeletrônicos e eletrodomésticos (Abree) recolhe os
                 materiais destinados nestas unidades, por meio do Termo de Cooperação com a prefeitura de Porto Alegre.
@@ -132,7 +113,7 @@
             <p>
                 Telefones:
                 <br>(11) 97656-2374<br>
-                (11) 98991-4558 (whatsapp)
+                (11) 98991-4558 (WhatsApp)
             </p>
             <p>
                 E-mail: coleta@abree.org.br
@@ -151,7 +132,9 @@
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55261.302456100624!2d-51.23043050671742!3d-30.04169437567704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951978567f17f28d%3A0x2c2c5272bacf4d3a!2sSenac%20Tech!5e0!3m2!1spt-BR!2sbr!4v1724075560999!5m2!1spt-BR!2sbr"
                 width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
         </div>
 
         <div id="redes">

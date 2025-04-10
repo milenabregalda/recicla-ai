@@ -3,6 +3,7 @@ require_once 'Conexao.php';
 require_once 'Usuario.php';
 require_once 'PontosColeta.php';
 require_once 'Noticias.php';
+require('../_php/dados_sessao.php');
 
 $conn = Conexao::getConexao();
 $usuario = new Usuario($conn);
